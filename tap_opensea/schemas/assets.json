@@ -479,8 +479,424 @@
     "sell_orders": {
       "type": [
         "null",
-        "integer"
-      ]
+        "array"
+      ],
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "created_date": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "closing_date": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "closing_extendable": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "expiration_time": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "listing_time": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "order_hash": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "metadata": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "properties": {
+              "asset": {
+                "type": [
+                  "null",
+                  "object"
+                ],
+                "properties": {
+                  "id": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "address": {
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  }
+                }
+              },
+              "schema": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "exchange": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "maker": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "properties": {
+              "user": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "profile_img_url": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "address": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "config": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "taker": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "properties": {
+              "user": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "profile_img_url": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "address": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "config": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "current_price": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "current_bounty": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "bounty_multiple": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "maker_relayer_fee": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "taker_relayer_fee": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "maker_protocol_fee": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "taker_protocol_fee": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "maker_referrer_fee": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "fee_recipient": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "properties": {
+              "user": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "profile_img_url": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "address": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "config": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "fee_method": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "side": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "sale_kind": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "target": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "how_to_call": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "calldata": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "replacement_pattern": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "static_target": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "static_extradata": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "payment_token": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "payment_token_contract": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "properties": {
+              "id": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "symbol": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "address": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "image_url": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "name": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "decimals": {
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "eth_price": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "usd_price": {
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            }
+          },
+          "base_price": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "extra": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "quantity": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "salt": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "v": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "r": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "s": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "approved_on_chain": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "cancelled": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "finalized": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "marked_invalid": {
+            "type": [
+              "null",
+              "boolean"
+            ]
+          },
+          "prefixed_hash": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      }
     },
     "creator": {
       "type": [
@@ -525,8 +941,252 @@
     "last_sale": {
       "type": [
         "null",
-        "string"
-      ]
+        "object"
+      ],
+      "properties": {
+        "asset": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "token_id": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "decimals": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            }
+          }
+        },
+        "asset_bundle": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "event_type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "event_timestamp": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "auction_type": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "total_price": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "payment_token": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "id": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "symbol": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "address": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "image_url": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "decimals": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "eth_price": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "usd_price": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        },
+        "transaction": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "block_hash": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "block_number": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "from_account": {
+              "type": [
+                "null",
+                "object"
+              ],
+              "properties": {
+                "user": {
+                  "type": [
+                    "null",
+                    "object"
+                  ],
+                  "properties": {
+                    "username": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  }
+                },
+                "profile_img_url": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "address": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "config": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              }
+            },
+            "id": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "timestamp": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "to_account": {
+              "type": [
+                "null",
+                "object"
+              ],
+              "properties": {
+                "user": {
+                  "type": [
+                    "null",
+                    "object"
+                  ],
+                  "properties": {
+                    "username": {
+                      "type": [
+                        "null",
+                        "string"
+                      ]
+                    }
+                  }
+                },
+                "profile_img_url": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "address": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "config": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              }
+            },
+            "transaction_hash": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "transaction_index": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        },
+        "created_date": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "quantity": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
     },
     "top_bid": {
       "type": [
@@ -557,6 +1217,56 @@
         "null",
         "string"
       ]
+    },
+    "traits": {
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "type": [
+          "null",
+          "object"
+        ],
+        "properties": {
+          "trait_type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "value": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "display_type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "max_value": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "trait_count": {
+            "type": [
+              "null",
+              "integer"
+            ]
+          },
+          "order": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      }
     }
   }
 }
