@@ -1,0 +1,141 @@
+{
+  "type": [
+    "null",
+    "object"
+  ],
+  "properties": {
+    "date": {
+      "type": [
+        "null",
+        "string"
+      ],
+      "format": "date-time"
+    },
+    "one_day_volume": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "one_day_change": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "one_day_sales": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "one_day_average_price": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "seven_day_volume": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "seven_day_change": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "seven_day_sales": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "seven_day_average_price": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "thirty_day_volume": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "thirty_day_change": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "thirty_day_sales": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "thirty_day_average_price": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "total_volume": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "total_sales": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "total_supply": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "count": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "num_owners": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "average_price": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "num_reports": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "market_cap": {
+      "type": [
+        "null",
+        "number"
+      ]
+    },
+    "floor_price": {
+      "type": [
+        "null",
+        "number"
+      ]
+    }
+  }
+}

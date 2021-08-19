@@ -161,6 +161,27 @@ class Assets(FullTableStream):
             yield from assets
 
 
+class Stats(FullTableStream):
+    """
+    Gets records for a sample stream.
+    """
+    tap_stream_id = 'stats'
+    key_properties = ['date']
+    endpoint = "/api/v1/asset/{contract_address}/1"
+
+    def get_records(self) -> list:
+        asset_contract_address = self.client.get_contract_address()
+        endpoint = self.endpoint.format(contract_address=asset_contract_address)
+
+        response = self.client.get(endpoint)
+
+        stats = response.get("collection").get("stats")
+        stats['date'] = singer.utils.now().isoformat()
+
+        yield stats
+
+
 STREAMS = {
     'assets': Assets,
+    'stats': Stats,
 }

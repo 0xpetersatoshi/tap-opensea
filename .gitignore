@@ -110,3 +110,4 @@ generate_schemas.py
 *config*.json
 *state*.json
 *catalog*.json
+*.csv
