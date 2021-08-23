@@ -144,7 +144,8 @@ class Assets(FullTableStream):
     def get_records(self):
         asset_contract_address = self.client.get_contract_address()
 
-        for offest in range(203):
+        # offset limit is 10,000
+        for offest in range(10_001):
             params = {
                 'asset_contract_address': asset_contract_address,
                 'limit': 50,
