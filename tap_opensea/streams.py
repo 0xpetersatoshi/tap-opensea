@@ -1,4 +1,5 @@
 import csv
+from datetime import datetime
 import time
 from typing import Any, Iterator
 
@@ -83,19 +84,22 @@ class IncrementalStream(BaseStream):
         :param transformer: A singer Transformer object
         :return: State data in the form of a dictionary
         """
-        start_time = singer.get_bookmark(state, self.tap_stream_id, self.replication_key, config['start_date'])
-        max_record_value = start_time
+        start_date = singer.get_bookmark(state, self.tap_stream_id, self.replication_key, config['start_date'])
+        bookmark_datetime = singer.utils.strptime_to_utc(start_date)
+        max_datetime = bookmark_datetime
 
         with metrics.record_counter(self.tap_stream_id) as counter:
-            for record in self.get_records(config):
+            for record in self.get_records(bookmark_datetime):
                 transformed_record = transformer.transform(record, stream_schema, stream_metadata)
-                record_replication_value = singer.utils.strptime_to_utc(transformed_record[self.replication_key])
-                if record_replication_value >= singer.utils.strptime_to_utc(max_record_value):
+                record_datetime = singer.utils.strptime_to_utc(transformed_record[self.replication_key])
+                if record_datetime >= bookmark_datetime:
                     singer.write_record(self.tap_stream_id, transformed_record)
                     counter.increment()
-                    max_record_value = record_replication_value.isoformat()
+                    max_datetime = max(record_datetime, max_datetime)
 
-        state = singer.write_bookmark(state, self.tap_stream_id, self.replication_key, max_record_value)
+            bookmark_date = singer.utils.strftime(max_datetime)
+
+        state = singer.write_bookmark(state, self.tap_stream_id, self.replication_key, bookmark_date)
         singer.write_state(state)
         return state
 
@@ -182,7 +186,43 @@ class Stats(FullTableStream):
         yield stats
 
 
+class Events(IncrementalStream):
+    """
+    Gets events from OpenSea.
+    """
+    tap_stream_id = 'events'
+    replication_key = 'created_date'
+    key_properties = ['id']
+    valid_replication_keys = ['created_date']
+    endpoint = '/api/v1/events'
+
+    def get_records(self, bookmark_datetime: datetime, is_parent: bool = None) -> list:
+        unix_seconds = bookmark_datetime.timestamp()
+        asset_contract_address = self.client.get_contract_address()
+
+        offset = 0
+        response_length = 300
+        while response_length > 0 and response_length <= 10_000:
+            params = {
+                'asset_contract_address': asset_contract_address,
+                'event_type': 'created',
+                'auction_type': 'dutch',
+                'limit': 300,
+                'occurred_after': unix_seconds,
+                'offset': offset,
+            }
+
+            response = self.client.get(self.endpoint, params)
+            events = response.get('asset_events')
+            response_length = len(events)
+            offset += 1
+
+            yield from events
+
+
+
 STREAMS = {
     'assets': Assets,
     'stats': Stats,
+    'events': Events,
 }

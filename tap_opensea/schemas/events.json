@@ -1,0 +1,744 @@
+{
+  "type": [
+    "null",
+    "object"
+  ],
+  "properties": {
+    "approved_account": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "asset": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "token_id": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "num_sales": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "background_color": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "image_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "image_preview_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "image_thumbnail_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "image_original_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "animation_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "animation_original_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "description": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "external_link": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "asset_contract": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "address": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "asset_contract_type": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "created_date": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "nft_version": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "opensea_version": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "owner": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "schema_name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "symbol": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "total_supply": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "description": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "external_link": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "image_url": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "default_to_fiat": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "dev_buyer_fee_basis_points": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "dev_seller_fee_basis_points": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "only_proxied_transfers": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "opensea_buyer_fee_basis_points": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "opensea_seller_fee_basis_points": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "buyer_fee_basis_points": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "seller_fee_basis_points": {
+              "type": [
+                "null",
+                "integer"
+              ]
+            },
+            "payout_address": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        },
+        "permalink": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "collection": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "banner_image_url": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "chat_url": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "created_date": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "default_to_fiat": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "description": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "dev_buyer_fee_basis_points": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "dev_seller_fee_basis_points": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "discord_url": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "display_data": {
+              "type": [
+                "null",
+                "object"
+              ],
+              "properties": {
+                "card_display_style": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              }
+            },
+            "external_url": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "featured": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "featured_image_url": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "hidden": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "safelist_request_status": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "image_url": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "is_subject_to_whitelist": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "large_image_url": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "medium_username": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "name": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "only_proxied_transfers": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "opensea_buyer_fee_basis_points": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "opensea_seller_fee_basis_points": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "payout_address": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "require_email": {
+              "type": [
+                "null",
+                "boolean"
+              ]
+            },
+            "short_description": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "slug": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "telegram_url": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "twitter_username": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "instagram_username": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "wiki_url": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        },
+        "decimals": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "token_metadata": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "owner": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "user": {
+              "type": [
+                "null",
+                "object"
+              ],
+              "properties": {
+                "username": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                }
+              }
+            },
+            "profile_img_url": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "address": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "config": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "asset_bundle": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "auction_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "bid_amount": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "collection_slug": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "contract_address": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "created_date": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "custom_event_name": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "dev_fee_payment_event": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "duration": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "ending_price": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "event_type": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "from_account": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "user": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "username": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        },
+        "profile_img_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "address": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "config": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "id": {
+      "type": [
+        "null",
+        "integer"
+      ]
+    },
+    "owner_account": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "payment_token": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "id": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "symbol": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "address": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "image_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "name": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "decimals": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "eth_price": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "usd_price": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "quantity": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "seller": {
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "user": {
+          "type": [
+            "null",
+            "object"
+          ],
+          "properties": {
+            "username": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        },
+        "profile_img_url": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "address": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "config": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "starting_price": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "to_account": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "total_price": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "transaction": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "winner_account": {
+      "type": [
+        "null",
+        "string"
+      ]
+    }
+  }
+}

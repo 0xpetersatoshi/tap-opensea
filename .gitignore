@@ -111,3 +111,7 @@ generate_schemas.py
 *state*.json
 *catalog*.json
 *.csv
+
+# project related
+analytics/
+*.db

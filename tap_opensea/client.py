@@ -7,6 +7,10 @@ LOGGER = get_logger()
 BASE_URL = "https://api.opensea.io"
 
 
+class OpenSeaClient429Error(Exception):
+    pass
+
+
 def retry_after_wait_gen():
     """
     Returns a generator that is passed to backoff decorator to indicate how long
@@ -48,7 +52,7 @@ class OpenSeaClient:
         """
         return self._make_request(url, method='POST', headers=headers, params=params, data=data)
 
-    # @backoff.on_exception(retry_after_wait_gen, Exception, jitter=None, max_tries=3)
+    @backoff.on_exception(backoff.expo, OpenSeaClient429Error, jitter=None, max_tries=3)
     def _make_request(self, url, method, headers=None, params=None, data=None) -> dict:
         """
         Makes the API request.
