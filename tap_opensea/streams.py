@@ -1,5 +1,5 @@
 import csv
-from datetime import datetime
+from datetime import date, datetime
 import time
 from typing import Any, Iterator
 
@@ -69,6 +69,7 @@ class IncrementalStream(BaseStream):
     """
     replication_method = 'INCREMENTAL'
     batched = False
+    auction_types = ["dutch"]
 
     def __init__(self, client):
         super().__init__(client)
@@ -84,12 +85,15 @@ class IncrementalStream(BaseStream):
         :param transformer: A singer Transformer object
         :return: State data in the form of a dictionary
         """
+        if config.get("auction_types"):
+            self.set_auction_types(config.get("auction_types"))
+
         start_date = singer.get_bookmark(state, self.tap_stream_id, self.replication_key, config['start_date'])
         bookmark_datetime = singer.utils.strptime_to_utc(start_date)
         max_datetime = bookmark_datetime
 
         with metrics.record_counter(self.tap_stream_id) as counter:
-            for record in self.get_records(bookmark_datetime):
+            for record in self.get_records(bookmark_datetime, config):
                 transformed_record = transformer.transform(record, stream_schema, stream_metadata)
                 record_datetime = singer.utils.strptime_to_utc(transformed_record[self.replication_key])
                 if record_datetime >= bookmark_datetime:
@@ -102,6 +106,15 @@ class IncrementalStream(BaseStream):
         state = singer.write_bookmark(state, self.tap_stream_id, self.replication_key, bookmark_date)
         singer.write_state(state)
         return state
+
+    def set_auction_types(self, auction_types: str):
+        try:
+            self.auction_types = list(map(str.strip, auction_types.split(",")))
+        except Exception as e:
+            LOGGER.critical(f"Error setting auction types: {e}")
+
+    def get_auction_types(self):
+        return self.auction_types
 
 
 class FullTableStream(BaseStream):
@@ -196,17 +209,17 @@ class Events(IncrementalStream):
     valid_replication_keys = ['created_date']
     endpoint = '/api/v1/events'
 
-    def get_records(self, bookmark_datetime: datetime, is_parent: bool = None) -> list:
+    def get_records(self, bookmark_datetime: datetime, config: dict = None, is_parent: bool = None) -> list:
         unix_seconds = bookmark_datetime.timestamp()
         asset_contract_address = self.client.get_contract_address()
 
         offset = 0
         response_length = 300
-        while response_length > 0 and response_length <= 10_000:
+        while response_length > 0 and offset <= 10_000:
             params = {
                 'asset_contract_address': asset_contract_address,
                 'event_type': 'created',
-                'auction_type': 'dutch',
+                # 'auction_type': 'dutch',
                 'limit': 300,
                 'occurred_after': unix_seconds,
                 'offset': offset,
@@ -218,7 +231,6 @@ class Events(IncrementalStream):
             offset += 1
 
             yield from events
-
 
 
 STREAMS = {
