@@ -56,7 +56,7 @@ class OpenSeaClient:
         """
         return self._make_request(url, method='POST', headers=headers, params=params, data=data)
 
-    @backoff.on_exception(backoff.expo, (OpenSeaClient429Error, OpenSeaClientRateLimit), jitter=None, max_tries=5)
+    @backoff.on_exception(backoff.expo, (OpenSeaClient429Error, Exception), jitter=None, max_tries=5)
     def _make_request(self, url, method, headers=None, params=None, data=None) -> dict:
         """
         Makes the API request.
