@@ -9,8 +9,9 @@ LOGGER = singer.get_logger()
 def sync(config, state, catalog):
     """ Sync data from tap source """
 
+    api_key = config.get("api_key")
     asset_contract_address = config['asset_contract_address']
-    client = OpenSeaClient(asset_contract_address)
+    client = OpenSeaClient(asset_contract_address, api_key)
 
     with Transformer() as transformer:
         for stream in catalog.get_selected_streams(state):
