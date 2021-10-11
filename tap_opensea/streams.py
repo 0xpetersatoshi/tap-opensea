@@ -11,6 +11,7 @@ from tap_opensea.client import OpenSeaClient
 
 
 LOGGER = singer.get_logger()
+DEFAULT_EVENT_TYPE = "successful"
 
 class BaseStream:
     """
@@ -70,6 +71,7 @@ class IncrementalStream(BaseStream):
     replication_method = 'INCREMENTAL'
     batched = False
     auction_types = ["dutch"]
+    event_type = DEFAULT_EVENT_TYPE
 
     def __init__(self, client):
         super().__init__(client)
@@ -87,6 +89,8 @@ class IncrementalStream(BaseStream):
         """
         if config.get("auction_types"):
             self.set_auction_types(config.get("auction_types"))
+
+        self.set_event_type(config.get("event_type"))
 
         start_date = singer.get_bookmark(state, self.tap_stream_id, self.replication_key, config['start_date'])
         bookmark_datetime = singer.utils.strptime_to_utc(start_date)
@@ -115,6 +119,12 @@ class IncrementalStream(BaseStream):
 
     def get_auction_types(self):
         return self.auction_types
+
+    def set_event_type(self, event_type: str):
+        self.event_type = event_type
+
+    def get_event_type(self) -> str:
+        return self.event_type
 
 
 class FullTableStream(BaseStream):
@@ -212,13 +222,14 @@ class Events(IncrementalStream):
     def get_records(self, bookmark_datetime: datetime, config: dict = None, is_parent: bool = None) -> list:
         unix_seconds = bookmark_datetime.timestamp()
         asset_contract_address = self.client.get_contract_address()
+        event_type = self.event_type or DEFAULT_EVENT_TYPE
 
         offset = 0
         response_length = 300
         while response_length > 0 and offset <= 10_000:
             params = {
                 'asset_contract_address': asset_contract_address,
-                'event_type': 'created',
+                'event_type': event_type,
                 # 'auction_type': 'dutch',
                 'limit': 300,
                 'occurred_after': unix_seconds,
